@@ -1,42 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plot Twist</title>
-     <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="index2.html">
+    <title>Plot Twist | Filmes, Séries e Livros</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Cabeçalho com a marca e atalhos para as seções da página. -->
     <header>
-        <div class="header-container">
-            <div class="logo-area">
-                <div>
-                    <h1>Plot Twist</h1>
-                    <p class="subtitulo">Entre páginas, telas e infinitos plots</p>
-                </div>
+        <div class="logo"><span>✦</span> PLOTWIST</div>
 
-                <div class="perfil-header" id="btn-editar-perfil">
-                    <div class="avatar" id="avatar-tela">👤</div>
-                    <span id="perfil-nome">CinefiloAnonimo</span>
-                    <span class="setinha">▼</span>
-                </div>
-            </div>
-
-            <div class="menu-direita">
-                <nav>
-                    <button class="btn-aba active" data-filtro="todos">Todos</button>
-                    <button class="btn-aba" data-filtro="Filme">Filmes</button>
-                    <button class="btn-aba" data-filtro="Série">Séries</button>
-                    <button class="btn-aba" data-filtro="Livro">Livros</button>
-                </nav>
-            </div>
-             
-            <div>
-
-            </div>
-        </div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#favoritos">Favoritos</a>
+            <a href="#perfil">Perfil</a>
+        </nav>
     </header>
-    
+
+    <main>
+        <!-- Apresentação inicial e formulário que filtra o catálogo. -->
+        <section id="inicio" class="hero">
+            <h1>Encontre sua próxima história.</h1>
+            <p>Descubra filmes, séries e livros, veja avaliações e compartilhe sua opinião.</p>
+
+            <form id="formPesquisa">
+                <label for="campoPesquisa">Pesquisar uma obra</label>
+                <input type="text" id="campoPesquisa" name="pesquisa" placeholder="Pesquise por filme, série ou livro..." required>
+
+                <select id="tipoPesquisa" name="tipo">
+                    <option value="todos">Todos</option>
+                    <option value="filme">Filmes</option>
+                    <option value="serie">Séries</option>
+                    <option value="livro">Livros</option>
+                </select>
+
+                <button type="submit">Pesquisar</button>
+            </form>
+        </section>
+
+        <!-- Os resultados são preenchidos dinamicamente pelo JavaScript. -->
+        <section id="catalogo">
+            <h2>Resultados</h2>
+            <div id="resultados">
+                <p class="mensagem-inicial">Pesquise por uma obra para começar.</p>
+            </div>
+        </section>
+
+        <!-- Área de detalhes e avaliações da obra selecionada. -->
+        <section id="detalhes">
+            <h2>Obra selecionada</h2>
+
+            <article id="detalhesObra">
+                <p>Pesquise e selecione uma obra para visualizar seus detalhes.</p>
+            </article>
+        </section>
+
+        <section id="resenhas">
+            <h2>Resenhas</h2>
+
+            <div id="listaResenhas">
+                <p>Selecione uma obra para visualizar as resenhas.</p>
+            </div>
+
+            <article id="novaResenha">
+                <h3>Escreva sua resenha</h3>
+                <p id="obraSelecionadaMensagem">Primeiro escolha uma obra para poder publicar uma resenha.</p>
+
+                <form id="formResenha">
+                    <div>
+                        <label for="nomeUsuario">Seu nome</label>
+                        <input type="text" id="nomeUsuario" name="nome" placeholder="Digite seu nome" disabled required>
+                    </div>
+
+                    <div>
+                        <label for="notaUsuario">Sua nota</label>
+                        <select id="notaUsuario" name="nota" disabled required>
+                            <option value="">Escolha uma nota</option>
+                            <option value="1">⭐ 1</option>
+                            <option value="2">⭐ 2</option>
+                            <option value="3">⭐ 3</option>
+                            <option value="4">⭐ 4</option>
+                            <option value="5">⭐ 5</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="textoResenha">Sua resenha</label>
+                        <textarea id="textoResenha" name="resenha" rows="5" placeholder="Conte o que você achou da obra..." disabled required></textarea>
+                    </div>
+
+                    <button type="submit" id="botaoPublicar" disabled>Publicar resenha</button>
+                </form>
+            </article>
+        </section>
+
+        <!-- Lista de favoritos e área de cadastro/perfil do usuário. -->
+        <section id="favoritos">
+            <h2>Meus favoritos</h2>
+
+            <div id="listaFavoritos">
+                <p>Você ainda não adicionou nenhuma obra aos favoritos.</p>
+            </div>
+        </section>
+
+        <section id="perfil">
+            <h2>Meu perfil</h2>
+
+            <article id="areaPerfil">
+                <div id="cadastroUsuario">
+                    <h3>Crie sua conta</h3>
+                    <p>Cadastre-se para poder publicar suas próprias resenhas.</p>
+
+                    <form id="formCadastro">
+                        <div>
+                            <label for="cadastroNome">Nome</label>
+                            <input type="text" id="cadastroNome" name="nome" placeholder="Seu nome" required>
+                        </div>
+
+                        <div>
+                            <label for="cadastroEmail">E-mail</label>
+                            <input type="email" id="cadastroEmail" name="email" placeholder="seuemail@email.com" required>
+                        </div>
+
+                        <div>
+                            <label for="cadastroSenha">Senha</label>
+                            <input type="password" id="cadastroSenha" name="senha" placeholder="Crie uma senha" required>
+                        </div>
+
+                        <button type="submit">Criar perfil</button>
+                    </form>
+                </div>
+
+                <div id="perfilUsuario" hidden>
+                    <h3 id="nomePerfil">Usuário</h3>
+                    <p id="emailPerfil">email@email.com</p>
+                    <p><strong>Minhas resenhas:</strong> <span id="quantidadeResenhas">0</span></p>
+                    <button type="button" id="botaoSair">Sair</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PLOTWIST</p>
+        <p>Entre páginas, telas e infinitos plots.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
